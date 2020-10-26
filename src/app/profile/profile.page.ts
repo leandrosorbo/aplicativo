@@ -81,13 +81,6 @@ async cadPrompt() {
           placeholder: 'CPF',
           type: 'number'
         },
-        {
-          type: 'checkbox',
-          placeholder: 'Advanced Attributes',
-          label: 'Checkbox 1',
-          value: 'value1',
-          checked: true
-        },
 
       ],
       buttons: [
