@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { ActionSequence } from 'protractor';
 
 
 @Component({
@@ -7,182 +8,106 @@ import { AlertController } from '@ionic/angular';
   templateUrl: './profile.page.html',
   styleUrls: ['./profile.page.scss'],
 })
-export class ProfilePage implements OnInit {
+export class ProfilePage {
 
-  constructor (private alertCtrl: AlertController) { }
+  constructor(private alertCtrl: AlertController) { }
 
-  ngOnInit() {
+  async cpfPrompt() {
+    const alert = await this.alertCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Entrar',
+      inputs: [
+        {
+          name: 'name1',
+          type: 'text',
+          placeholder: 'Nome de usuário'
+        },
+        {
+          name: 'senha1',
+          type: 'password',
+          id: 'pw1',
+          placeholder: 'Senha'
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Entrar',
+          handler: () => {
+            console.log('Confirm Ok');
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
-  //prompt CPF
- async cpfPrompt() {
-  const alert = await this.alertCtrl.create({
-    title: 'Login',
-    header: 'Login',
-    inputs: [
-      {
-        name: 'cpf',
-        placeholder: 'CPF',
-        type: 'number'
-      },
-      {
-        name: 'password',
-        placeholder: 'Senha',
-        type: 'password'
-      }
-    ],
-    buttons: [
-      {
-        text: 'Cancelar',
-        role: 'cancel',
-        handler: data => {
-          console.log('Login cancelado!');
-        }
-      },
-      {
-        text: 'Login',
-        handler: data => {
-          if (User.isValid(data.username, data.password)) {
-            // logged in!
-          } else {
-            // invalid login
-            return false;
-          }
-        }
-      }
-    ]
-  });
- await alert.present();
-}
-
-//prompt Facebook
-async fbPrompt() {
-  const alert = await this.alertCtrl.create({
-    title: 'Login',
-    header: 'Login',
-    inputs: [
-      {
-        name: 'e-mail',
-        placeholder: 'E-mail'
-      },
-      {
-        name: 'password',
-        placeholder: 'Senha',
-        type: 'password'
-      }
-    ],
-    buttons: [
-      {
-        text: 'Cancelar',
-        role: 'cancel',
-        handler: data => {
-          console.log('Login cancelado!');
-        }
-      },
-      {
-        text: 'Login',
-        handler: data => {
-          if (User.isValid(data.username, data.password)) {
-            // logged in!
-          } else {
-            // invalid login
-            return false;
-          }
-        }
-      }
-    ]
-  });
- await alert.present();
-}
-
- //prompt google
-async googlePrompt() {
-const alert = await this.alertCtrl.create({
-  title: 'Login',
-  header: 'Login',
-  inputs: [
-    {
-      name: 'e-mail',
-      placeholder: 'E-mail'
-    },
-    {
-      name: 'password',
-      placeholder: 'Senha',
-      type: 'password'
-    }
-  ],
-  buttons: [
-    {
-      text: 'Cancelar',
-      role: 'cancel',
-      handler: data => {
-        console.log('Login cancelado!');
-      }
-    },
-    {
-      text: 'Login',
-      handler: data => {
-        if (User.isValid(data.username, data.password)) {
-          // logged in!
-        } else {
-          // invalid login
-          return false;
-        }
-      }
-    }
-  ]
-});
-await alert.present();
-}
-
-
-//prompt Cadastro
 async cadPrompt() {
-  const alert = await this.alertCtrl.create({
-    title: 'Registro',
-    header: 'Registro',
-    inputs: [
-      {
-        name: 'username',
-        placeholder: 'ID'
-      },
-      {
-        name: 'password',
-        placeholder: 'Senha',
-        type: 'password'
-      },
-      {
-        name: 'confirm password',
-        placeholder: 'Confirmar Senha',
-        type: 'password'
-      },
-      {
-        name: 'e-mail',
-        placeholder: 'e-mail'
-      },
-      {
-        name: 'cpf',
-        placeholder: 'CPF',
-        type: 'number'
-      }
-    ],
-    buttons: [
-      {
-        text: 'Cancelar',
-        role: 'cancel',
-        handler: data => {
-          console.log('Cadastro cancelado!');
+    const alert = await this.alertCtrl.create({
+      cssClass: 'my-custom-class',
+      header: 'Cadastro',
+      inputs: [
+        {
+          name: 'name1',
+          type: 'text',
+          placeholder: 'Nome de usuário'
+        },
+        {
+          name: 'senha1',
+          type: 'password',
+          id: 'pw1',
+          placeholder: 'Senha'
+        },
+        {
+          name: 'senha2',
+          id: 'pw2',
+          type: 'password',
+          placeholder: 'Confirmar senha'
+        },
+        {
+          name: 'name3',
+          type: 'email',
+          placeholder: 'Endereço de e-mail'
+        },
+        {
+          name: 'cpf',
+          placeholder: 'CPF',
+          type: 'number'
+        },
+        {
+          type: 'checkbox',
+          placeholder: 'Advanced Attributes',
+          label: 'Checkbox 1',
+          value: 'value1',
+          checked: true
+        },
+
+      ],
+      buttons: [
+        {
+          text: 'Cancelar',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+            console.log('Confirm Cancel');
+          }
+        }, {
+          text: 'Ok',
+          handler: () => {
+            console.log('Confirm Ok');
+          }
         }
-      },
-      {
-        text: 'Registrar',
-        handler: data => {
-          console.log('Cadastro efetuado com sucesso!')
-        }
-      }
-    ]
-  });
- await alert.present();
-}
+      ]
+    });
+
+    await alert.present();
+  }
 
 }
