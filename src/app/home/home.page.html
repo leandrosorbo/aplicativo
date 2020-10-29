@@ -68,7 +68,7 @@
         <ion-item>
           <ion-icon name="location" slot="start"></ion-icon>
           <ion-select id="customActionSheetSelect" interface="action-sheet" placeholder="Selecione local para retirar" cancel="Cancelar">
-            <ion-select-option value="aricanduva">Shopping Aricanduva</ion-select-option>
+            <ion-select-option value="aricanduva" >Shopping Aricanduva</ion-select-option>
             <ion-select-option value="mooca">Shopping Mooca</ion-select-option>
             <ion-select-option value="higienopolis">Shopping Pátio Higienópolis</ion-select-option>
           </ion-select>       
@@ -76,9 +76,9 @@
         <br>
         <ion-item>
           <ion-icon name="calendar-outline" slot="start"></ion-icon>
-             <ion-datetime display-format="D de MMMM de YYYY"  cancel-text="Cancelar"
-              done-text="Confirmar" monthNames="Janeiro, Fevereiro, março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
-              [min]= "minDateInput" [max]= "maxDateInput" [(ngModel)] = "selectedDateString1"></ion-datetime>           
+             <ion-datetime display-format="D de MMMM de YYYY"  cancel-text="Cancelar" 
+              done-text="Confirmar" placeholder="Selecione a data de retirada" monthNames="Janeiro, Fevereiro, março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
+              [min]= "minDateInput" [max]= "maxDateInput" (click) = "selectedDateString1"></ion-datetime>           
         </ion-item>
         <h6><strong>ONDE GOSTARIA DE DEVOLVER?</strong></h6>
         <ion-item>
@@ -93,9 +93,10 @@
         <ion-item>
           <ion-icon name="calendar-outline" slot="start"></ion-icon>
              <ion-datetime display-format="D de MMMM de YYYY"  cancel-text="Cancelar"
-              done-text="Confirmar" monthNames="Janeiro, Fevereiro, março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
-              [min]= "minDateOutput" [max]= "maxDateOutput" [(ngModel)] = "selectedDateString2"></ion-datetime>             
+              done-text="Confirmar" placeholder="Selecione a data de devolução" monthNames="Janeiro, Fevereiro, março, Abril, Maio, Junho, Julho, Agosto, Setembro, Outubro, Novembro, Dezembro"
+              [min]= "minDateOutput" [max]= "maxDateOutput" (click) = "selectedDateString2"></ion-datetime>             
         </ion-item>
+        
         <br>
         <ion-button button routerLink="/fleet" expand="block" color="success">Reservar</ion-button>
       </ion-content>
