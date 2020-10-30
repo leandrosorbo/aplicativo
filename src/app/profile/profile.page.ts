@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AlertController } from '@ionic/angular';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { auth } from 'firebase/app';
 
 
 @Component({
@@ -9,7 +11,15 @@ import { AlertController } from '@ionic/angular';
 })
 export class ProfilePage implements OnInit {
 
-  constructor(private alertCtrl: AlertController) { }
+  constructor(private alertCtrl: AlertController, public auth: AngularFireAuth) { }
+
+    login() {
+    this.auth.signInWithPopup(new auth.GoogleAuthProvider());
+  }
+  logout() {
+    this.auth.signOut();
+  } 
+
 
   ngOnInit() {
   }
