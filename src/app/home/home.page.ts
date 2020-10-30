@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActionSheetController, Platform, AlertController } from '@ionic/angular';
+import { Platform, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
