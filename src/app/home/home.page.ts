@@ -10,7 +10,13 @@ import { Storage } from '@ionic/storage';
 })
 export class HomePage {
 
-  inputtext: string;
+  //inputtext: string;
+  select1: string;
+  data1: string;
+  select2: string;
+  data2: string;
+
+
   key = 'username';
 
   selectedDateString1 = new Date().toISOString();
@@ -50,14 +56,24 @@ export class HomePage {
   }
 
   saveData() {
-    this.storage.set(this.key, this.inputtext);
+    console.log(
+      'select1', this.select1,
+      'data1', this.data1,
+      'select2', this.select2,
+      'data2', this.data2,
+    );
+    //this.storage.set(this.key, '');
+    this.storage.set('select1', this.select1);
+    this.storage.set('data1', this.data1);
+    this.storage.set('select2', this.select2);
+    this.storage.set('data2', this.data2);
   }
 
-  loadData(){
-  this.storage.get(this.key).then((val) => {
-    console.log('Your username is', val);
-  });
-}
+  loadData() {
+    this.storage.get(this.key).then((val) => {
+      console.log('Your username is', val);
+    });
+  }
 
 
 }
