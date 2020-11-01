@@ -69,11 +69,11 @@ export class HomePage {
     this.storage.set('data2', this.data2);
   }
 
-  loadData() {
-    this.storage.get(this.key).then((val) => {
-      console.log('Your username is', val);
-    });
-  }
+  // loadData() {
+  //   this.storage.get(this.key).then((val) => {
+  //     console.log('Your username is', val);
+  //   });
+  // }
 
 
 }
