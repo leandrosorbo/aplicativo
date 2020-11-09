@@ -66,7 +66,7 @@
 
 
 <ion-content>
-  <ion-card *ngFor="let car of cars"><!-- ativa os dados dos objetos-->
+  <ion-card class="animate__animated animate__backInDown" *ngFor="let car of cars"><!-- ativa os dados dos objetos-->
     <ion-item>
       <ion-label>{{car.name}}</ion-label>
       <ion-button fill="outline" slot="end" (click) = presentAlert(car)>Detalhes</ion-button>      
@@ -86,7 +86,7 @@
       <ion-card>
         <ion-card-content>
           <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-            <ion-button button routerLink="/profile" color="success">Quero esse</ion-button>  
+            <ion-button class="animate__animated animate__pulse" button routerLink="/profile" color="success">Quero esse</ion-button>  
           </ion-fab>      
           <ion-label><h1>{{car.valor}}</h1></ion-label>
           </ion-card-content>

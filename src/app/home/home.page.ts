@@ -29,6 +29,7 @@ export class HomePage {
 
   constructor(private platform1: Platform, private platform2: Platform, private storage: Storage) {
 
+
     this.platform1.ready().then(() => {
       let date1: Date = new Date();
       date1.setDate(date1.getDate() - 0);

@@ -65,6 +65,7 @@
 </ion-header>
 
 <ion-content>
+  <ion-progress-bar color="sucess" type="indeterminate"></ion-progress-bar>
   <ion-segment (ionChange)="segmentChanged()" [(ngModel)] = "selectedSegment">
     <ion-segment-button value="current">
       <ion-label>Atuais</ion-label>
@@ -79,7 +80,7 @@
     <ion-item> 
       <ion-checkbox slot="start" [(ngModel)] = "car.completed" (click)="presentAlert()"></ion-checkbox>
       <ion-label>{{car.name}}</ion-label>
-      <ion-button fill="outline" slot="end" (click)="detailsAlert(car)">Detalhes</ion-button> 
+      <ion-button class="animate__animated animate__pulse" fill="outline" slot="end" (click)="detailsAlert(car)">Detalhes</ion-button> 
     </ion-item>
     <img src="{{car.img}}">
     <ion-card-content>
@@ -91,5 +92,7 @@
       <ion-icon name="car-sport-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab> 
+
+  
 
   </ion-content>
