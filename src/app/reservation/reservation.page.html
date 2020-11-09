@@ -78,7 +78,7 @@
   
   <ion-card *ngFor="let car of filteredCars">
     <ion-item> 
-      <ion-checkbox slot="start" [(ngModel)] = "car.completed" (click)="presentAlert()"></ion-checkbox>
+      <ion-checkbox slot="start" [(ngModel)] = "car.completed" (click)="presentAlert()" (click)="saveData()"></ion-checkbox>
       <ion-label>{{car.name}}</ion-label>
       <ion-button class="animate__animated animate__pulse" fill="outline" slot="end" (click)="detailsAlert(car)">Detalhes</ion-button> 
     </ion-item>
