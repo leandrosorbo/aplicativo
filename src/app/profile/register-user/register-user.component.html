@@ -9,7 +9,7 @@
   </ion-toolbar>
 </ion-header>
 <ion-content>
-  <form (ngSubmit)="signupUser()">
+  <!--<form (ngSubmit)="signupUser()">-->
     <ion-item>
       <ion-label>E-mail</ion-label>
       <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
@@ -21,6 +21,6 @@
 
 
     <!--validar botão-->
-    <ion-button type="submit" block expand="block" (click)="closeModal()">Registrar</ion-button>
-  </form>
+    <ion-button type="submit" block expand="block"(click)="onRegister()" (click)="closeModal()">Registrar</ion-button>
+ <!-- </form>  -->
 </ion-content>
