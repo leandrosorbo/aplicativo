@@ -13,8 +13,13 @@ import * as firebase from 'firebase';
 })
 export class RegisterUserComponent implements OnInit {
   
-  email: string = 'hpalenca13@gmail.com';
-  password: string = '123456'
+  // public email: string = '';
+  // public password: string = '';
+
+  public user = {
+    email: '',
+    password:''
+  }
 
   constructor(private alertCtrl: AlertController, private ModalController: ModalController, public auth: AngularFireAuth, private authService: AuthService, private router: Router) { }
 
@@ -27,26 +32,27 @@ export class RegisterUserComponent implements OnInit {
    
     //função registrar
     signupUser(): Promise<firebase.auth.UserCredential>  {
-    return firebase.auth().createUserWithEmailAndPassword(this.email, this.password);
+      console.log(this.user.email,this.user.password);
+    return firebase.auth().createUserWithEmailAndPassword(this.user.email, this.user.password);
     }
     
 
 
-    //registro autenticação e rota
-    async onRegister(): Promise<void> {
-      this.authService.signupUser(this.email, this.password).then(
-        () => {
-          this.router.navigateByUrl('home');
-        },      
-        async error => {
-          const alert = await this.alertCtrl.create({
-            message: error.message,
-            buttons: [{ text: 'Ok', role: 'cancel' }],
-          });
-          await alert.present();
-        }
-      );
-    }
+    // //registro autenticação e rota
+    // async onRegister(): Promise<void> {
+    //   this.authService.signupUser(this.email, this.password).then(
+    //     () => {
+    //       this.router.navigateByUrl('home');
+    //     },      
+    //     async error => {
+    //       const alert = await this.alertCtrl.create({
+    //         message: error.message,
+    //         buttons: [{ text: 'Ok', role: 'cancel' }],
+    //       });
+    //       await alert.present();
+    //     }
+    //   );
+    // }
 
     
 

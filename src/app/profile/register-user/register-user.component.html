@@ -12,15 +12,15 @@
   <!--<form (ngSubmit)="signupUser()">-->
     <ion-item>
       <ion-label>E-mail</ion-label>
-      <ion-input type="text" [(ngModel)]="email" name="email"></ion-input>
+      <ion-input type="text" [(ngModel)]="user.email" name="email"></ion-input>
     </ion-item>
     <ion-item>
       <ion-label>Senha</ion-label>
-      <ion-input type="password" [(ngModel)]="password" name="password"></ion-input>
+      <ion-input type="password" [(ngModel)]="user.password" name="password"></ion-input>
     </ion-item>
 
 
     <!--validar botão-->
-    <ion-button type="submit" block expand="block"(click)="onRegister()" (click)="closeModal()">Registrar</ion-button>
+    <ion-button type="submit" block expand="block"(click)="signupUser()" (click)="closeModal()">Registrar</ion-button>
  <!-- </form>  -->
 </ion-content>
